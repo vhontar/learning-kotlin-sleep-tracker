@@ -28,7 +28,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepTrackerBinding
-import com.example.android.trackmysleepquality.sleeptracker.recycler.SleepTrackerAdapter
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -66,7 +65,7 @@ class SleepTrackerFragment : Fragment() {
         }
 
         viewModel.nights.observe(viewLifecycleOwner, Observer {
-            adapter.data = it
+            adapter.submitList(it)
         })
 
         viewModel.navigateToSleepQuality.observe(this.viewLifecycleOwner, Observer { sleepNight ->
