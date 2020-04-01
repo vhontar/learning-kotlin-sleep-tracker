@@ -26,13 +26,13 @@ fun ImageView.setSleepImage(item: SleepNight?) {
 @BindingAdapter("sleepNightDurationFormatted")
 fun TextView.setSleepNightDurationFormatted(item: SleepNight?) {
     item?.let {
-        text = convertNumericQualityToString(item.sleepQuality, context.resources)
+        text = convertDurationToFormatted(item.startTimeMillis, item.endTimeMillis, context.resources)
     }
 }
 
 @BindingAdapter("sleepNightQualityString")
 fun TextView.setSleepNightQualityString(item: SleepNight?) {
     item?.let {
-        text = convertDurationToFormatted(item.startTimeMillis, item.endTimeMillis, context.resources)
+        text = convertNumericQualityToString(item.sleepQuality, context.resources)
     }
 }

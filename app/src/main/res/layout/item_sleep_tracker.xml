@@ -7,49 +7,41 @@
         <variable
             name="item"
             type="com.example.android.trackmysleepquality.database.SleepNight" />
+
+        <variable
+            name="clickListener"
+            type="com.example.android.trackmysleepquality.sleeptracker.SleepNightClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(item)}">
 
         <ImageView
             android:id="@+id/ivSleepQuality"
             android:layout_width="@dimen/icon_size"
             android:layout_height="60dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/sleep_quality_icon_description"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:sleepImage="@{item}"
             app:srcCompat="@drawable/ic_sleep_0"
-            tools:srcCompat="@drawable/ic_sleep_0"
-            app:sleepImage="@{item}"/>
-
-        <TextView
-            android:id="@+id/tvSleepDateTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivSleepQuality"
-            app:layout_constraintTop_toTopOf="@+id/ivSleepQuality"
-            app:sleepNightDurationFormatted="@{item}"/>
+            tools:srcCompat="@drawable/ic_sleep_0" />
 
         <TextView
             android:id="@+id/tvSleepQuality"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ivSleepQuality"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivSleepQuality"
-            app:layout_constraintTop_toBottomOf="@+id/tvSleepDateTime"
-            app:sleepNightQualityString="@{item}"/>
+            app:layout_constraintEnd_toEndOf="@+id/ivSleepQuality"
+            app:layout_constraintStart_toStartOf="@+id/ivSleepQuality"
+            app:layout_constraintTop_toBottomOf="@+id/ivSleepQuality"
+            app:sleepNightQualityString="@{item}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

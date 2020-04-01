@@ -69,6 +69,17 @@ class SleepTrackerViewModel(
         _showClearedSnackBar.value = false;
     }
 
+    private val _navigateToSleepDataQuality = MutableLiveData<Long?>()
+    val navigateToSleepDataQuality: LiveData<Long?> = _navigateToSleepDataQuality
+
+    fun doneNavigatingToSleepDataQuality() {
+        _navigateToSleepDataQuality.value = null
+    }
+
+    fun makeNavigatingToSleepDataQuality(sleepNightId: Long) {
+        _navigateToSleepDataQuality.value = sleepNightId
+    }
+
     override fun onCleared() {
         super.onCleared()
         sleepTrackerJob.cancel()
