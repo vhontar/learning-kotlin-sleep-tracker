@@ -1,6 +1,6 @@
 # Room - SleepQualityTracker app
 
-Sleep Tracker application was used for learning Data Persistence with using Room library.
+Sleep Tracker application was used for learning Data Persistence with using Room library. Also understanding how to use RecyclerView with DataBinding.
 
 ## SleepQualityTracker
 
